@@ -7,13 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <p> Waist </p>  
+    <h1> Sewing Bee </h1>
+    <h2> Measurement Converter </h2>
+
+    <label> Waist </label>  
+    <input id="inputWaist" type="number" placeholder="Waist" oninput="WaistConverter(this.value)" onchange="LengthConverter(this.value)">
+    </p>
+    <p>Converted Waist: <span id="outputWaist"></span></p>
+<!-- 
     <p> Crotch Length </p>
     <p> Hip </p> 
     <p> Height </p>
+ -->
+    
 </body>
 
-<javascript>
-    
-</javascript>
+<script>
+    function WaistConverter(valNum) {     
+        valNum = parseInt(valNum);
+        var result = 0;
+
+        result = parseInt(valNum / 4);
+        valNum = (((valNum + 4) % 4) * 8) / 40;
+        result = result + valNum + 4;
+        document.getElementById("outputWaist").innerHTML = result; 
+    }
+</script>
 </html>
